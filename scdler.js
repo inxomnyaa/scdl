@@ -124,18 +124,16 @@ function insert_button() {
             console.log(kiddies[yts].className);
             if (kiddies[yts].className && kiddies[yts].className.indexOf("scdl_btn_start") < 0) {
               var clone_a = a_scdl.cloneNode(true);
-              if (elems[i].className.indexOf("sc-button-group-small") > -1) {
-                clone_a.className = "scdl_btn_start sc-button-download sc-button-secondary sc-button sc-button-small sc-button-icon sc-button-responsive";
-                var clone_labelSpan = clone_a.querySelector('.sc-button-label');
-                if (clone_labelSpan) {
-                  clone_labelSpan.classList.add('sc-visuallyhidden');
-                }
-              }else{
-              }
               clone_a.addEventListener("click", function() {
                 actual_listener_event(this);
               }, true);
-              elems[i].appendChild(clone_a);
+              if (elems[i].className.indexOf("sc-button-group-small") > -1) {
+                clone_a.className = "scdl_btn_start sc-button-download sc-button-secondary sc-button sc-button-small sc-button-icon sc-button-responsive";
+                clone_a.querySelector('.sc-button-label')?.classList.add('sc-visuallyhidden');
+                elems[i].appendChild(clone_a);
+              }else{
+                elems[i].appendChild(clone_a);
+              }
               yts = kiddies.length;
               scdl_elemets_that_have.push(elems[i].parentNode);
             } else {
