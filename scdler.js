@@ -130,7 +130,7 @@ function insert_button() {
               if (elems[i].className.indexOf("sc-button-group-small") > -1) {
                 clone_a.className = "scdl_btn_start sc-button-download sc-button-secondary sc-button sc-button-small sc-button-icon sc-button-responsive";
                 clone_a.querySelector('.sc-button-label')?.classList.add('sc-visuallyhidden');
-                elems[i].appendChild(clone_a);
+                elems[i].insertBefore(clone_a, elems[i].lastElementChild);
               }else{
                 elems[i].appendChild(clone_a);
               }
